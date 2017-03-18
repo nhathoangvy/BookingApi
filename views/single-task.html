@@ -1,0 +1,103 @@
+<section>
+
+{{# if user}}
+{{# if taskOffs}}
+{{# each taskOffs}}
+
+<span style="display:none" class="idTask">{{this._id}}</span>
+  <div class="TASK">
+Status : {{this.status}}<br>
+Purpose :  {{this.purpose}}<br>
+PriceMin : {{this.priceMin}}<br>
+Price Max : {{this.priceMax}}<br>
+Local :  {{this.local}}<br>
+Property : {{this.property}}<br>
+</div>
+Reward : {{this.reward}}<br>
+Created : {{this.created}}
+<span class="lastEdit"><br>Last edited : <i>{{this.edited}}</i></span><br>
+Author : {{this.author}}
+
+{{/each}}
+{{/if}}
+{{# if taskDones}}
+{{# each taskDones}}
+<span style="display:none" class="idTask">{{this._id}}</span>
+  <div class="TASK">
+Status : {{this.status}}<br>
+Purpose :  {{this.purpose}}<br>
+PriceMin : {{this.priceMin}}<br>
+Price Max : {{this.priceMax}}<br>
+Local :  {{this.local}}<br>
+Property : {{this.property}}<br>
+</div>
+Reward : {{this.reward}}<br>
+Created : {{this.created}}
+<span class="lastEdit"><br>Last edited : <i>{{this.edited}}</i></span><br>
+Author : {{this.author}}
+{{/each}}
+{{else}}
+{{# each tasks}}
+
+<span style="display:none" class="idTask">{{this._id}}</span>
+  <div class="TASK">
+Status : {{this.status}}<br>
+Purpose :  {{this.purpose}}<br>
+PriceMin : {{this.priceMin}}<br>
+Price Max : {{this.priceMax}}<br>
+Local :  {{this.local}}<br>
+Property : {{this.property}}<br>
+</div>
+Reward : {{this.reward}}<br>
+Created : {{this.created}}
+<span class="lastEdit"><br>Last edited : <i>{{this.edited}}</i></span><br>
+Author : {{this.author}}
+
+{{/each}}
+{{/if}}
+<br>
+<a class="edit-task" href="javascript:;">Edit</a><br>
+<a href="javascript:;" onClick="document.getElementById('del-task').click();">Delete</a><br>
+{{else}}
+{{# if tasks}}
+{{# each tasks}}
+<span style="display:none" class="idTask">{{this._id}}</span>
+Status : {{this.status}}<br>
+Purpose :  {{this.purpose}}<br>
+PriceMin : {{this.priceMin}}<br>
+Price Max : {{this.priceMax}}<br>
+Local :  {{this.local}}<br>
+Property : {{this.property}}<br>
+Reward : {{this.reward}}<br>
+Created : {{this.created}}
+<span class="lastEdit"><br>Last edited : <i>{{this.edited}}</i></span><br>
+Author : {{this.author}}
+
+{{/each}}
+{{else}}
+You can't see it !!!
+{{/if}}
+{{/if}}
+
+{{# if user}}
+  <form action="/cm" method="post">
+    <input type="hidden" name="userID" value="{{user._id}}" />
+    {{# each tasks}}
+    <input type="hidden" name="page" value="{{this._id}}"/>
+    {{/each}}
+    {{# each taskOffs}}
+    <input type="hidden" name="page" value="{{this._id}}"/>
+    {{/each}}
+    <textarea type="text" name="content">
+    </textarea>
+    <button class="cmm" type="submit">Send</button>
+  </form>
+  {{else}}
+  <br>
+  Please login to comment ! ==> <a href="/">Login</a><br>
+  {{/if}}
+  <div class="comments">
+    <!-- data export here -->
+</div>
+</section>
+<div class="delTasks"></div>

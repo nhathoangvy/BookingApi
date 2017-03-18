@@ -1,0 +1,68 @@
+<section>
+      {{# if user.facebook.id }}
+  <form action="/upFB" method ="post">
+    <input type="hidden" name="id" value="{{user._id}}" />
+    <input type="hidden" name="purpose" value="Buy"/>
+    <input type="hidden" name="property" required />
+    <input type="hidden" name="author" value="{{user.facebook.name}}"/>
+
+
+      Purpose:
+<div class="radio">
+      <input type="radio" name="p" value="Buy" checked>Buy
+      <input type="radio" name="p" value="Rent" >Rent
+</div>
+      Local:
+      <select name="local">
+          <option value="Hamrun">Hamrun</option>
+          <option value="Vietnam">Viet Nam</option>
+      </select>
+
+      <div class="properties">
+        <input type="checkbox" value="Terraced House"/>Terraced House
+        <input type="checkbox" value="Flat"/>Flat
+      </div>
+Price from:
+      <select name="priceMin">
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="400">400</option>
+          <option value="800">800</option>
+          <option value="1600">1600</option>
+          <option value="3200">3200</option>
+          <option value="6400">6400</option>
+          <option value="12800">12800</option>
+      </select>
+      To :
+      <select name="priceMax">
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="400">400</option>
+          <option value="800">800</option>
+          <option value="1600">1600</option>
+          <option value="3200">3200</option>
+          <option value="6400">6400</option>
+          <option value="12800">12800</option>
+      </select>
+  Reward
+      <input type="number" name="reward" required/>
+              <input type="submit"/>
+  </form>
+
+
+  </section>
+      {{/if}}
+
+      List task created owner:<br>
+      {{# each tasks}}
+      {{# if_eq this.status 'draft'}}
+        <a href="/task/{{this._id}}">{{this._id}}</a> -- <a style="color:#ff0000">Draft</a><br>
+        {{/if_eq}}
+        {{# if_eq this.status 'public'}}
+          <a href="/task/{{this._id}}">{{this._id}}</a> -- <a style="color:#0000ff">Public</a><br>
+          {{/if_eq}}
+          {{# if_eq this.status 'done'}}
+            <a href="/task/{{this._id}}">{{this._id}}</a> -- <a style="color:green">Done</a><br>
+            {{/if_eq}}
+      {{/each}}
+</section>

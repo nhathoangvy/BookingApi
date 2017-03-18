@@ -1,0 +1,11 @@
+You are searching with {{key}}:<br>
+<div id="content">
+{{# if posts}}
+{{# each posts}}
+{{this.title}}<br>
+{{{this.content}}}<br>
+{{/each}}
+{{else}}
+Not found with {{key}}!
+{{/if}}
+</div>

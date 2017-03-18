@@ -1,0 +1,18 @@
+<section>
+  {{# if tasks}}
+  {{# each tasks}}
+  Status : {{this.status}}<br>
+  Purpose :  {{this.purpose}}<br>
+  Price Min : {{this.priceMin}}<br>
+  Price Max : {{this.priceMax}}<br>
+  Local :  {{this.local}}<br>
+  Property : {{this.property}}<br>
+  Reward : {{this.reward}}<br>
+  Created : {{this.created}}
+  <span class="lastEdit"><br>Last edited : <i>{{this.edited}}</i></span><br>
+  Author : {{this.author}}
+  {{/each}}
+  {{else}}
+  Not task found on your filter !
+  {{/if}}
+</section>

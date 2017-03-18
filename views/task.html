@@ -1,0 +1,14 @@
+<section>
+<form class="up" action="/upload" method = "post" target="ifr">
+  {{# each posts}}
+  <input type="hidden" name="id" value="{{this._id}}"/>
+  <textarea class="write" id="content" name="content">{{this.content}}</textarea>
+{{/each}}
+  <input style="display:none" type="submit"/>
+</form>
+<iframe name="ifr" style="display:none"></iframe>
+{{# each posts}}
+Edit(others can't see)<a href="/e/{{this._id}}">http://localhost:7000/e/{{this._id}}</a><br>
+View                  <a href="/v/{{this._id}}">http://localhost:7000/v/{{this._id}}</a>
+{{/each}}
+</section>

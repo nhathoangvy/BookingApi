@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+  </head>
+<body>
+  {{{header}}}
+  {{# if user.facebook.id }}
+    <h2 class="fa fa-facebook"> Facebook</h2><br>
+    <img src="//graph.facebook.com/{{ user.facebook.id }}/picture?type=large" class="img-circle"><br>
+    <strong>email</strong>: {{ user.facebook.email }}<br>
+    <strong>name</strong>: {{ user.facebook.name }}<br>
+    <span class="fa fa-sign-out"><a href="/logout"> Sign out</a></span>
+  {{/if}}
+  {{{ body }}}
+</body>
+</html>

@@ -1,0 +1,55 @@
+    <section>
+
+        <h1>Login</h1>
+
+        <a href="/login" class="btn"><span class="fa fa-sign-in"></span> Login</a>
+        <a href="/signup" class="btn"><span class="fa fa-user"></span> Signup</a>
+        <a href="/auth/facebook" class="btn"><span class="fa fa-facebook"></span> Facebook</a>
+        <a href="/auth/twitter" class="btn"><span class="fa fa-twitter"></span> Twitter</a>
+        <a href="/auth/google" class="btn"><span class="fa fa-google-plus"></span> Google</a><br>
+SEARCH:<br>
+<form action="/s" method="POST" >
+  <input type="hidden" name="status" value="public"/>
+  <input type="hidden" name="purpose" value="Buy"/>
+  <input type="hidden" name="property" required/>
+
+<div class="radio">
+    <input type="radio" name="p" value="Buy" checked>Buy
+    <input type="radio" name="p" value="Rent" >Rent
+</div>
+
+    <select name="local">
+        <option value="Hamrun">Hamrun</option>
+        <option value="Vietnam">Viet Nam</option>
+    </select>
+
+    <div class="properties">
+      <input type="checkbox" value="Terraced House"/>Terraced House
+      <input type="checkbox" value="Flat"/>Flat
+    </div>
+
+    Price from:
+          <select name="priceMin">
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="400">400</option>
+              <option value="800">800</option>
+              <option value="1600">1600</option>
+              <option value="3200">3200</option>
+              <option value="6400">6400</option>
+              <option value="12800">12800</option>
+          </select>
+          To :
+          <select name="priceMax">
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="400">400</option>
+              <option value="800">800</option>
+              <option value="1600">1600</option>
+              <option value="3200">3200</option>
+              <option value="6400">6400</option>
+              <option value="12800">12800</option>
+          </select>
+  <button type="submit">Filter</button>
+</form>
+    </section>

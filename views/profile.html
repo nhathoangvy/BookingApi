@@ -1,0 +1,92 @@
+    <section>
+        <h1 class=" fa fa-user"> {{user._id}}</h1><br>
+        <span class="fa fa-sign-out"><a href="/logout"> Sign out</a></span>
+        <div class="jumbotron">
+          {{# if user.local.email }}
+            <img src="https://avatars.io/gravatar/{{ user.local.email }}/140" class="img-circle"><br>
+            <strong>email</strong>: {{ user.local.email }}<br>
+          {{/if}}
+
+          {{# if user.facebook.id }}
+            <h2 class="fa fa-facebook"> Facebook</h2><br>
+            <img src="//graph.facebook.com/{{ user.facebook.id }}/picture?type=large" class="img-circle"><br>
+            <strong>id</strong>: {{ user.facebook.id }}<br>
+            <strong>email</strong>: {{ user.facebook.email }}<br>
+            <strong>name</strong>: {{ user.facebook.name }}<br>
+            <section>
+              <iframe name="ff" style="display:none"></iframe>
+      <form class="up" action="/uploadFB" method ="post" target="ff">
+        <input type="hidden" name="id" value="{{user._id}}" />
+          <textarea class="write" placeholder="Type something" name="content">{{user.facebook.task.property}}</textarea>
+        <input style="display:none" type="submit"/>
+      </form>
+      <form action="/upFB" method ="post">
+        <input type="hidden" name="id" value="{{user._id}}" />
+        <input type="hidden" name="property" />
+        <input type="hidden" name="local"/>
+          <textarea style="display:none" name="property">
+          </textarea>
+
+          Purpose:
+
+          <input type="radio" value="Buy"/>
+          <input type="radio" value="Rent"/>
+
+          Local:
+          <select>
+              <option value="{{local}}">{{local}}</option>
+          </select>
+
+          <div class="properties">
+            <input type="checkbox" value="Terraced House"/>
+            <input type="checkbox" value="Flat"/>
+          </div>
+
+          <input type="number" name="priceMin"/>
+          <input type="number" name="priceMax"/>
+
+          <input type="number" name="reward"/>
+                  <input type="submit"/>
+      </form>
+
+      </section>
+          {{/if}}
+
+          {{# if user.twitter.id }}
+            <h2 class="fa fa-twitter"> Twitter</h2><br>
+            <img src="https://avatars.io/twitter/{{ user.twitter.username }}" class="img-circle"><br>
+            <strong>id</strong>: {{ user.twitter.id }}<br>
+            <strong>token</strong>: {{ user.twitter.token }}<br>
+            <strong>username</strong>: {{ user.twitter.username }}<br>
+            <strong>displayName</strong>: {{ user.twitter.displayName }}
+          {{/if}}
+
+          {{# if user.google.id }}
+            <h2 class="fa fa-google-plus"> Google</h2><br>
+            <img src="https://avatars.io/gravatar/{{user.google.email}}/140" class="img-circle"><br>
+            <strong>id</strong>: {{user.google.id}}<br>
+            <strong>token</strong>: {{user.google.token}}<br>
+            <strong>email</strong>: {{user.google.email}}<br>
+            <strong>name</strong>: {{user.google.name}}<br>
+            <section>
+              <iframe name="ff" style="display:none"></iframe>
+      <form class="up" action="/uploadGG" method ="post" target="ff">
+        <input type="hidden" name="id" value="{{user._id}}" />
+          <textarea class="write" placeholder="Type something" name="content">{{user.google.task.property}}</textarea>
+        <input style="display:none" type="submit"/>
+      </form>
+      </section>
+
+      <form action="/upGG" method ="post">
+        <input type="hidden" name="id" value="{{user._id}}" />
+          <input type="text" placeholder="Type something" name="content">
+                  <input type="submit"/>
+      </form>
+      {{# each properties}}
+        {{this.property}}<br>
+      {{/each}}
+
+          {{/if}}
+
+
+</section>

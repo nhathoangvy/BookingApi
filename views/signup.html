@@ -1,0 +1,17 @@
+
+      <section>
+        <h1><span class="fa fa-sign-in"></span> Signup</h1>
+
+        {{# if message }}
+          <div class="alert-danger">{{ this }}</div>
+        {{/if}}
+
+        <form action="/signup" method="post">
+              <label>Email</label>
+              <input type="text" class="form-control" name="email">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" />
+            <input type="submit" class="form-control" value="Submit" />
+        </form>
+      </section>
+      <hr>
